@@ -10,6 +10,7 @@ const ContainerIngridients = styled.div`
 `;
 const Ingredient = styled.a`
 	font-size: 16px;
+	line-height: 24px;
 `;
 const StyledList = styled.ul`
 	display: flex;
@@ -23,10 +24,34 @@ const ListItem = styled.li``;
 const Ingredients = () => {
 	return (
 		<ContainerIngridients>
-			<Title>Ingredients</Title>
+			<Title>
+				Ingredients
+			</Title>
 			<StyledList>
 				<ListItem>
-					<Ingredient>Ingrediente</Ingredient>
+					<Ingredient>
+						Ingredient
+					</Ingredient>
+				</ListItem>
+				<ListItem>
+					<Ingredient>
+						Ingredient
+					</Ingredient>
+				</ListItem>
+				<ListItem>
+					<Ingredient>
+						Ingredient
+					</Ingredient>
+				</ListItem>
+				<ListItem>
+					<Ingredient>
+						Ingredient
+					</Ingredient>
+				</ListItem>
+				<ListItem>
+					<Ingredient>
+						Ingredient
+					</Ingredient>
 				</ListItem>
 			</StyledList>
 		</ContainerIngridients>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../components/Header";
+import { Header } from "@components/Header";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -16,7 +16,9 @@ const Layout = ({ children }) => {
 		<Container>
 			<AppContainer>
 				<Header />
-				{children}
+				{
+					children
+				}
 			</AppContainer>
 		</Container>
 	);

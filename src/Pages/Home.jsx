@@ -1,22 +1,41 @@
-import React from "react";
-import { Recipes } from "@Container/Recipes";
-import { Recipe } from "../components/Recipe";
+import React, { Suspense } from "react";
+import { Recipes } from "@container/Recipes";
+
 import { useGetRecipes } from "../hooks/useGetRecipes";
+const Recipe = React.lazy(() => import("../components/Recipe"));
 
 const Home = () => {
-	const { isLoading, errorGetRecipes, recipes } = useGetRecipes();
+	const { isLoading, errorGetRecipes, recipes } =
+		useGetRecipes();
 
 	return (
 		<Recipes>
-			{recipes.map((meal) => (
-				<Recipe
-					key={meal.idMeal}
-					JustifyContent={"center"}
-					recipe={meal}
-					isInformation={false}
-					cursorValue={"pointer"}
-				/>
-			))}
+			{recipes.map(
+				(
+					meal
+				) => (
+					<Suspense
+						key={
+							meal.idMeal
+						}
+					>
+						<Recipe
+							JustifyContent={
+								"center"
+							}
+							recipe={
+								meal
+							}
+							isInformation={
+								false
+							}
+							cursorValue={
+								"pointer"
+							}
+						/>
+					</Suspense>
+				)
+			)}
 		</Recipes>
 	);
 };

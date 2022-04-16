@@ -1,8 +1,9 @@
 import { React, useContext } from "react";
 import styled from "styled-components";
 import { RecipeNameContainer } from "../Container/RecipeNameContainer";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
+
 const RecipeContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -27,15 +28,13 @@ const ShareLink = styled.a`
 		text-decoration: underline;
 	}
 `;
-const StyledLink = styled(Link)`
-	text-decoration: none;
-`;
+
 const Recipe = ({
 	isInformation,
 	recipe,
 	HeightRecipeContainer,
 	JustifyContent,
-	cursor,
+	cursorValue,
 }) => {
 	const { selectRecipe } = useContext(AppContext);
 	const navigate = useNavigate();
@@ -43,19 +42,44 @@ const Recipe = ({
 	const handleRecipeClick = () => {
 		console.log("entra a handle");
 		selectRecipe(recipe);
-		navigate("/recipe-information");
+		navigate(
+			"/recipe-information"
+		);
 	};
 
 	return (
 		<RecipeContainer
-			image={recipe.strMealThumb}
-			HeightRecipeContainer={HeightRecipeContainer}>
-			<RecipeNameContainer cursorValue={cursor} JustifyContent={JustifyContent}>
-				<RecipeName>{recipe.strMeal}</RecipeName>
-				{isInformation && <ShareLink>Share</ShareLink>}
+			image={
+				recipe.strMealThumb
+			}
+			HeightRecipeContainer={
+				HeightRecipeContainer
+			}
+		>
+			<RecipeNameContainer
+				onClick={() =>
+					handleRecipeClick()
+				}
+				cursorValue={
+					cursorValue
+				}
+				JustifyContent={
+					JustifyContent
+				}
+			>
+				<RecipeName>
+					{
+						recipe.strMeal
+					}
+				</RecipeName>
+				{isInformation && (
+					<ShareLink>
+						Share
+					</ShareLink>
+				)}
 			</RecipeNameContainer>
 		</RecipeContainer>
 	);
 };
 
-export { Recipe };
+export default Recipe;

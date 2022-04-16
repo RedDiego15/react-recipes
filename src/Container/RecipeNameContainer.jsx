@@ -10,16 +10,32 @@ const StyledRecipeNameContainer = styled.div`
 	height: 4rem;
 	background-color: #ff9800;
 	&:hover {
-		cursor: ${(p) => p.cursorValue};
+		padding: 10px;
 	}
+	cursor: ${(p) => p.cursorValue};
 	box-shadow: 0px 6px 5px 0px #726867;
 `;
-const RecipeNameContainer = ({ JustifyContent, children, cursor }) => {
+const RecipeNameContainer = ({
+	onClick,
+	JustifyContent,
+	children,
+	cursorValue,
+}) => {
 	return (
 		<StyledRecipeNameContainer
-			cursorValue={cursor}
-			JustifyContent={JustifyContent}>
-			{children}
+			onClick={() =>
+				onClick()
+			}
+			cursorValue={
+				cursorValue
+			}
+			JustifyContent={
+				JustifyContent
+			}
+		>
+			{
+				children
+			}
 		</StyledRecipeNameContainer>
 	);
 };

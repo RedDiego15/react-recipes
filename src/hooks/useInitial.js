@@ -3,7 +3,10 @@ const useInitial = () => {
 	const [state, setState] = React.useState({});
 
 	const selectRecipe = (payload) => {
-		setState({ ...state, selectRecipe: payload });
+		setState({
+			...state,
+			selectedRecipe: payload,
+		});
 	};
 	return {
 		state,
