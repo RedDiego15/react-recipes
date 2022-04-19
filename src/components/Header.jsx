@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MdTimer } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
 	position: relative;
@@ -21,12 +22,23 @@ const iconStyles = {
 	width: "26px",
 	height: "26px",
 };
-
+const StyledLink = styled(Link)`
+	text-decoration: none;
+`;
 const Header = () => {
 	return (
 		<StyledHeader>
-			<Title>Recipes</Title>
-			<MdTimer style={iconStyles} />
+			<StyledLink to="/">
+				<Title>
+					Recipes
+				</Title>
+			</StyledLink>
+
+			<MdTimer
+				style={
+					iconStyles
+				}
+			/>
 		</StyledHeader>
 	);
 };

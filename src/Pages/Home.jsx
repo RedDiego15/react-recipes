@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
-import { Recipes } from "@container/Recipes";
-
+import { Recipes } from "../Container/Recipes";
 import { useGetRecipes } from "../hooks/useGetRecipes";
 const Recipe = React.lazy(() => import("../components/Recipe"));
 
@@ -15,6 +14,11 @@ const Home = () => {
 					meal
 				) => (
 					<Suspense
+						fallback={
+							<p>
+								Loading...
+							</p>
+						}
 						key={
 							meal.idMeal
 						}

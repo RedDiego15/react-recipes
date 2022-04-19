@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { NotFound } from "@pages/NotFound";
+import { NotFound } from "./NotFound";
 import { RecipeInformation } from "./RecipeInformation";
-import { Home } from "@pages/Home";
-import { Layout } from "@container/Layout";
+import { Home } from "./Home";
+import { Layout } from "../Container/Layout";
 import { AppContext } from "../Context/AppContext";
 import { useInitial } from "../hooks/useInitial";
 
