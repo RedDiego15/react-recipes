@@ -19,7 +19,7 @@ const isLocalhost = Boolean(
 		)
 );
 
-export default function register() {
+export function register() {
 	if (
 		process.env.NODE_ENV ===
 			"production" &&
@@ -124,6 +124,7 @@ function registerValidSW(swUrl) {
 
 function checkValidServiceWorker(swUrl) {
 	// Check if the service worker can be found. If it can't reload the page.
+	console.log("check for service worker");
 	fetch(swUrl)
 		.then((response) => {
 			// Ensure service worker exists, and that we really are getting a JS file.
